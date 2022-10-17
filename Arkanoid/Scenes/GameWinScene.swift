@@ -28,8 +28,7 @@ final class GameWinScene: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         gameWinLabel = scene?.childNode(withName: "Win") as? SKLabelNode
-        gameWinLabel?.run(SKAction.playSoundFileNamed(randomWinSoundName,
-                                                      waitForCompletion: false))
+        SoundManager.shared.play(sound: randomWinSoundName, node: gameWinLabel)
         winScore = scene?.childNode(withName: "WinScore") as? SKLabelNode
         winScore?.text = "Score: \(String(getCurrentWinScore() ?? .zero))" 
     }

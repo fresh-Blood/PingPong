@@ -85,11 +85,10 @@ extension GameScene: SKPhysicsContactDelegate {
     }
     
     private func playPongSound(bodyA: SKNode?, bodyB: SKNode?) {
-        let pongSoundAction = SKAction.playSoundFileNamed("pongSound", waitForCompletion: false)
         if bodyA == platform {
-            bodyA?.run(pongSoundAction)
+            SoundManager.shared.play(sound: "pongSound", node: bodyA)
         } else if bodyB == platform {
-            bodyB?.run(pongSoundAction)
+            SoundManager.shared.play(sound: "pongSound", node: bodyB)
         }
     }
     
@@ -171,9 +170,7 @@ extension GameScene: SKPhysicsContactDelegate {
     }
     
     private func playBallJumpSound(ball: SKNode?) {
-        let playJumpSoundAction = SKAction.playSoundFileNamed("jumpSound",
-                                                              waitForCompletion: false)
-        ball?.run(playJumpSoundAction)
+        SoundManager.shared.play(sound: "jumpSound", node: ball)
     }
     
     private func updateScore() {

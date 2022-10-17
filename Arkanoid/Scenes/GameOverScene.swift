@@ -25,8 +25,7 @@ final class GameOverScene: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         gameOverLabel = scene?.childNode(withName: "GameOver") as? SKLabelNode
-        gameOverLabel?.run(SKAction.playSoundFileNamed(randomGameOverSoundName,
-                                                       waitForCompletion: false))
+        SoundManager.shared.play(sound: randomGameOverSoundName, node: gameOverLabel)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
